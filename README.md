@@ -30,7 +30,6 @@ This project focuses on a comprehensive analysis of loan disbursements over the 
 
 4. Invalid Loans: Identification and analysis of loans with incomplete or missing master data, which may affect the accuracy and reliability of loan records.
 
-The objective is to provide actionable insights for optimizing loan disbursement strategies, improving branch and officer performance, reducing risk, and enhancing data integrity in the loan portfolio.
 
 ### The Loan Disbursement for the Last Six Months 
 Below report show the analysis of loan disbursements over the past six months, evaluating the performance across different branches, different loan products and account officers.
@@ -45,6 +44,11 @@ The report below provides an analysis of last month's loan disbursements, detail
 ### Portfolio At Risk (PAR)
 Portfolio At Risk (PAR): Analysis of loans with a Portfolio At Risk (PAR) status of 30 days and above, identifying trends in delayed repayments and potential risk factors.
 
-<img width="593" alt="image" src="https://github.com/user-attachments/assets/e01b6f50-20aa-4adb-bd49-6c0298d2efc6">
+<img width="551" alt="image" src="https://github.com/user-attachments/assets/a044f679-0ad1-4394-a9e9-ba64a856edd6">
 
+### Invalid Loans:
+The report below shows the identification and analysis of loans with incomplete or missing master data, which may affect the accuracy and reliability of loan records.
 
+<img width="556" alt="image" src="https://github.com/user-attachments/assets/33fbc477-6666-4c72-a95c-c05d67965fa0">
+
+In conclusion: The objective of the is project is to provide actionable insights for optimizing loan disbursement strategies, improving branch and officer performance, reducing risk, and enhancing data integrity in the loan portfolio.
