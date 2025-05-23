@@ -556,7 +556,7 @@ Seniors and patients in some departments (like Neurology) tend to wait longer (e
 You can compare satisfaction scores against wait times. For example:
 
  - Patient_ID 102-04-8249 had 1 min wait and a satisfaction score of 11, indicating strong satisfaction.
- - Patient_ID 100-01-5981 had 60 min wait and a satisfaction score of 6 — still moderate satisfaction, possibly due to care quality.
+ - Patient_ID 100-17-5953 had 60 min wait and a satisfaction score of 6 — still moderate satisfaction, possibly due to care quality.
 
 ### Race-Based or Age-Based Satisfaction Trends
 The data allows filtering for race/age to evaluate disparities in treatment or patient experience.
