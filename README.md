@@ -441,3 +441,123 @@ GROUP BY shift
 
 This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
 
+# Project 6: Hospital Emergency Room Visits Dashboard
+
+# [Hospital Emergency Room Visits](https://app.powerbi.com/reportEmbed?reportId=ca5194c1-ed2e-4cfc-b97b-db0faeb25a81&autoAuth=true&ctid=ba130eca-3030-48e1-9089-c979293aeb70)
+
+## Project Overview
+Project Title: Hospital Emergency Room Visits
+Data Source: Microsoft SQL Server
+Tool: Microsoft Power BI
+
+This Power BI project delivers a dynamic and interactive dashboard designed to support hospitals in monitoring and improving emergency room (ER) operations. The dashboard provides a comprehensive overview of ER visits, enabling healthcare administrators to:
+
+- Analyze key performance metrics such as patient wait times, visit volumes, and admission rates
+-Identify peak hours and high-demand periods for better staff allocation
+- Track patient outcomes and revisit rates to assess care quality
+- Detect trends and patterns in emergency cases over time
+- Make data-driven decisions to enhance efficiency and patient satisfaction
+
+By consolidating critical ER data into a single, user-friendly interface, this dashboard empowers hospital management to uncover actionable insights, optimize resource utilization, and ultimately improve the quality of emergency care services.
+
+## Overview Page
+
+![Image](https://github.com/user-attachments/assets/90e7d07c-7277-4b19-af0f-07e2bb63e1a5)
+
+# Number of Patients
+- The dashboard indicates that 5,000 patients visited the Emergency Room during the selected month (2020).
+- This is a significant increase of 897.5% compared to the previous month, suggesting a surge in ER visits. This could be due to a seasonal trend, public health issue, or special events influencing hospital visits.
+
+# Average Wait Time
+- The average wait time for patients in the ER is 35.47 minutes.
+- There's been a 2% improvement in wait time compared to the previous month.
+This might reflect better operational efficiency, more staffing, or process optimizations in triage and treatment.
+
+# Average Satisfaction
+- Patient satisfaction score is 5.0, rated on a scale presumably out of 5.
+- The score has improved by 6% since the last month, indicating that changes implemented recently might be positively impacting patient experience.
+
+- # **Satisfaction is further broken down by:**
+    - **Race:** Pacific Islanders have the highest average score (5.3), while Native American/Alaska Native and "Two or More Races" have the lowest (4.8).
+    - Filters are available to analyze satisfaction by Age Range, Gender, and Race.
+
+# Visits by Gender
+- The dashboard shows gender-based visit trends over the week:
+  - **Male:** 2,523 visits
+  - **Female:** 2,355 visits
+  - While both genders follow similar patterns, there is a slight dominance in male visits
+  - Peak days appear to be Tuesdays and Fridays, with fluctuations throughout the week.
+
+# Patients Visits by Day and Time
+- A heatmap visual shows the volume of visits by day of week and hour of day.
+- Monday is the busiest day, and 11:00 PM is the busiest time.
+- The darkest shades (higher visit counts) appear between 4 PM to midnight on weekdays.
+- Sunday early mornings and weekday mornings are relatively quieter.
+- This insight can help with resource planning and staff allocation.
+
+# Average Wait Time by Department
+- This bar chart compares wait times across departments:
+     - Neurology has the longest average wait time (37 mins), indicating a possible backlog or staff/resource shortage.
+     - Physiotherapy, Cardiology, Orthopedics, and unidentified patients ("None") all average 36 mins.
+     - Gastroenterology and General Practice are at 35 mins.
+     - Renal department has the shortest average wait time (34 mins), possibly indicating a smoother triage process or lower patient volume.
+
+ 
+## Summary Page
+
+![Image](https://github.com/user-attachments/assets/c2aa334e-edda-4cfc-88d8-380a3d7f9044)
+
+
+## Columns Explained
+1. ### Patient_ID
+- A unique identifier for each patient visit (e.g., 100-04-3993).
+- Indicates multiple visits by different patients.
+
+2. ### Year / Month
+- Displays the year and month of each emergency room visit.
+- Helps in analyzing seasonal trends or time-based spikes in ER usage.
+
+3. ### Full Name
+- Pseudonym or masked name of the patient for privacy.
+- Not relevant for analytics but useful for reference in private/internal reports.
+
+4. ### Gender
+- Indicates if the patient is Male (M) or Female (F).
+- Enables gender-based trend analysis (e.g., are women waiting longer?).
+
+5. ### Race
+- Ethnic identification (e.g., White, African American, Pacific Islander, Asian).
+- This data helps track healthcare equity or satisfaction trends across racial groups.
+
+6. ### Age / Age Range
+- Numerical age and categorized age groups (e.g., Youth, Adult, Senior).
+- Useful for identifying patterns in ER visits by age brackets.
+
+7. ### Department
+- The ER department the patient visited (e.g., General Practice, Neurology, Orthopedics).
+- Helps assess department workloads, bottlenecks, or specialties with high traffic.
+
+8. ### Satisfaction Score
+- Patient-reported satisfaction on a likely scale of 0–10.
+- A score of 10 suggests excellent experience, while 0 suggests poor.
+  
+9. ### Wait Time
+- The number of minutes the patient waited before being seen.
+- Critical for operational performance analysis and improving patient experience.
+
+## Insights You Can Derive
+### Performance per Department
+E.g., some departments like General Practice show repeated entries with both low and high wait times — indicating inconsistent performance or varying demand.
+
+### Wait Time Disparities
+Seniors and patients in some departments (like Neurology) tend to wait longer (e.g., 60 mins, 55 mins), suggesting potential under-capacity or triage issues.
+
+### Satisfaction vs. Wait Time
+You can compare satisfaction scores against wait times. For example:
+
+ - Patient_ID 102-04-8249 had 1 min wait and a satisfaction score of 11, indicating strong satisfaction.
+ - Patient_ID 100-01-5981 had 60 min wait and a satisfaction score of 6 — still moderate satisfaction, possibly due to care quality.
+
+### Race-Based or Age-Based Satisfaction Trends
+The data allows filtering for race/age to evaluate disparities in treatment or patient experience.
+
