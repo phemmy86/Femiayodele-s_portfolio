@@ -598,5 +598,45 @@ By adopting a unified analytics platform like Microsoft Fabric, the institution 
 - Meet regulatory requirements faster and more accurately
 
 ## Overview of the Project Architecture
-![Image]()
+<img width="1322" height="743" alt="Screenshot 2025-08-02 211111" src="https://github.com/user-attachments/assets/4bee071f-0a27-4c06-8841-5100574e9d08" />
 
+The architecture illustrates an end-to-end enterprise data warehouse and reporting solution using Microsoft Fabric. It ingests data from structured and unstructured sources (CSV, SQL, APIs, SharePoint, JSON) through pipelines, Eventstream, and Dataflow Gen2 into the Bronze layer. The Silver layer processes data via Lakehouse and Fabric Notebooks using PySpark or Scala. The Gold layer stores refined data in the Fabric Data Warehouse for analytics. Power BI connects directly to the warehouse for reporting and dashboards. Eventhouse supports real-time data via KQL queries and dashboards. Microsoft Purview and OneLake unify governance and storage across the platform for business insights and decision-making.
+
+## Project Implementation
+
+## Customer_to_Data_WH_Pipeline
+<img width="1486" height="898" alt="Screenshot 2025-08-02 214326" src="https://github.com/user-attachments/assets/800d47a9-56b6-4323-bec8-a5a3c732600d" />
+
+The pipeline “Customer_to_Data_WH_Pipeline” performs an incremental load of customer data from a SharePoint folder to Microsoft Fabric Data Warehouse. Here's a summary:
+- Dataflow activity reads customer data from SharePoint.
+- Two Lookup activities retrieve the old and new watermark values (typically timestamps) to identify new or changed records.
+- The Copy Data activity loads only the delta (incremental data) from SharePoint into Fabric Data Warehouse using the watermark values as filters.
+- After loading, a stored procedure (Update_Customer_WaterMark SP) updates the watermark value for the next run.
+- The pipeline ensures efficient incremental data loading and historical tracking.
+- 
+# Here is the customer data in the data warehouse
+<img width="1851" height="908" alt="Screenshot 2025-08-02 222414" src="https://github.com/user-attachments/assets/cef9ec6c-33b1-43cd-850f-8ba3ae0c2538" />
+
+## Transaction_Pipeline
+<img width="1485" height="827" alt="Screenshot 2025-08-02 214749" src="https://github.com/user-attachments/assets/c0f7fb93-d7aa-4b90-9396-f9ddfcdf9387" />
+
+The Transaction_Pipeline enables dynamic, incremental data loading from SQL Server (Snapnet_FSI database) to the target system. Here's the summary:
+- Lookup Activity (Get Base Tables) retrieves a list of source tables (e.g., Loan, Transaction) with schema details.
+- A ForEach activity (Loop Table) iterates over these tables.
+- Inside the loop, the Copy Data activity (onprem to EDW):
+      -- Dynamically sets the source schema and table name using @item().Schema and @item().Table.
+      -- Transfers Loan data from 2020 to date and Transaction data incrementally.
+- Ideal for scalable ETL processes across multiple SQL Server tables.
+
+# Here is the data (Loan & Financial transaction) in the Data Warehouse
+<img width="1831" height="741" alt="Screenshot 2025-08-02 221852" src="https://github.com/user-attachments/assets/1c7d0634-9787-42bb-a9de-514974619c66" />
+<img width="1842" height="901" alt="Screenshot 2025-08-02 222145" src="https://github.com/user-attachments/assets/74b51d02-3fdf-4d34-a6d3-aa7326eb3a91" />
+
+## Fabric_Event_Financial_Data_Source_Nb
+<img width="1492" height="871" alt="Screenshot 2025-08-02 220951" src="https://github.com/user-attachments/assets/f649550a-d2b6-43a9-bb1d-5a29529a3a93" />
+
+The attached notebook demonstrates a workflow for extracting financial data via an API, transforming it, and storing it in a lakehouse. The notebook begins with an exploration of available data items, including tables like Financial_Transaction and Loan_trans_2023-2025, suggesting a financial analytics context.
+
+The user,imports libraries such as pandas and uses notebookutils.credentials to securely retrieve an API key from Azure Key Vault. A function, get_data_from_api, is defined to fetch financial data from the API endpoint api.api.tiles.io/v2/markets/stock/financial, using a ticker symbol as input. Although incomplete, the function outlines the API call structure.
+
+The notebook's purpose appears to be pulling financial data (e.g., stock metrics), processing it, and saving it as a table in the lakehouse (e.g., structured_financial_report). This aligns with common data engineering tasks in financial analytics, emphasizing secure API access and lakehouse integration for further analysis. The execution timestamps indicate active development.
