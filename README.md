@@ -561,7 +561,42 @@ You can compare satisfaction scores against wait times. For example:
 ### Race-Based or Age-Based Satisfaction Trends
 The data allows filtering for race/age to evaluate disparities in treatment or patient experience.
 
-# Project 6: Reducing Reporting Bottlenecks in Finance
-## Leveraging Modern Data Solutions for Enhanced Efficiency and Strategic Insights
+# Project 7: Reducing Reporting Bottlenecks in Finance
+# Leveraging Modern Data Solutions for Enhanced Efficiency and Strategic Insights
 
+## Business Use Case: Streamlining Financial Reporting for Better Compliance and Efficiency
+
+## Client Profile
+A mid-sized financial institution (e.g., Microfinance Bank / Fintech / Investment Firm / Insurance Company) struggling to keep up with growing data demands, regulatory pressure, and operational inefficiencies due to outdated reporting processes.
+
+## Current Situation
+- Multiple Data Silos: Data resides in Excel/CSV, SQL Server, SharePoint folder, ERP, and Core Banking platforms, making integration difficult.
+- Manual Reporting: Teams consolidate data manually, increasing the risk of errors and delays.
+- Disjointed Systems: Separate tools for ETL, reporting, and visualization reduce collaboration and transparency.
+- Inconsistent KPIs: Different departments use their own metrics, leading to conflicting reports and misaligned decisions.
+
+## Key Challenges
+- Data Fragmentation: Lack of a unified data platform limits visibility and control.
+- No Real-Time Insights: Inability to generate real-time or self-service reports impacts decision-making.
+- Inefficiency: Reporting is time-consuming, requiring hours or days of manual effort.
+- Regulatory Risk: Difficulty meeting evolving requirements (e.g., IFRS 9, Basel III, CBN Guidelines) due to slow and error-prone processes.
+- Rising Costs: High operational burden from repeated manual tasks and data reconciliation.
+
+## Business Impact
+This situation leads to:
+- Delayed financial reporting and compliance issues
+- Limited agility in responding to regulatory or business changes
+- High cost-to-serve due to inefficiencies
+- Poor decision-making due to inconsistent or outdated data
+
+## Opportunity
+By adopting a unified analytics platform like Microsoft Fabric, the institution can:
+- Integrate all data sources into a single platform (OneLake)
+- Automate data ingestion, transformation, and reporting
+- Enable real-time dashboards and self-service BI with Power BI
+- Standardize KPIs across departments
+- Meet regulatory requirements faster and more accurately
+
+## Overview of the Project Architecture
+![Image]()
 
