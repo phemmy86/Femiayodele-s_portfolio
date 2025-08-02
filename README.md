@@ -624,8 +624,8 @@ The Transaction_Pipeline enables dynamic, incremental data loading from SQL Serv
 - Lookup Activity (Get Base Tables) retrieves a list of source tables (e.g., Loan, Transaction) with schema details.
 - A ForEach activity (Loop Table) iterates over these tables.
 - Inside the loop, the Copy Data activity (onprem to EDW):
-      -- Dynamically sets the source schema and table name using @item().Schema and @item().Table.
-      -- Transfers Loan data from 2020 to date and Transaction data incrementally.
+    - Dynamically sets the source schema and table name using @item().Schema and @item().Table.
+   - Transfers Loan data from 2020 to date and Transaction data incrementally.
 - Ideal for scalable ETL processes across multiple SQL Server tables.
 
 # Here is the data (Loan & Financial transaction) in the Data Warehouse
@@ -640,3 +640,55 @@ The attached notebook demonstrates a workflow for extracting financial data via 
 The user,imports libraries such as pandas and uses notebookutils.credentials to securely retrieve an API key from Azure Key Vault. A function, get_data_from_api, is defined to fetch financial data from the API endpoint api.api.tiles.io/v2/markets/stock/financial, using a ticker symbol as input. Although incomplete, the function outlines the API call structure.
 
 The notebook's purpose appears to be pulling financial data (e.g., stock metrics), processing it, and saving it as a table in the lakehouse (e.g., structured_financial_report). This aligns with common data engineering tasks in financial analytics, emphasizing secure API access and lakehouse integration for further analysis. The execution timestamps indicate active development.
+
+## Enterprise Reporting Using Power BI 
+
+Power BI connects directly to the data warehouse to create reports and dashboards that help business users make informed decisions.
+
+# Financial Report
+
+<img width="1417" height="790" alt="Screenshot 2025-08-02 223714" src="https://github.com/user-attachments/assets/7b8c98fc-e364-4d2f-8134-94e4ea71a691" />
+
+This financial report highlights strong growth, with total revenue at $3.06B (↑6.5%) and net profit at $1.47B (↑8.2%). Key takeaways:
+- Profitability Improved: Gross profit rose to $1.42B (↑11.35%), with a gross profit ratio of 46.51% (↑4.8%), indicating better cost management.
+- Subsidiary Performance:
+     - Apple leads in revenue ($1.52B) but saw a decline in gross profit ratio (-13.89%).
+   - Google grew strongly ($1.2B revenue, ↑17% gross profit).
+   - Tesla struggled with a lower gross profit ratio (21.1%) due to higher expenses.
+- Efficiency Gains: Net margin improved to 48.03% (↑1.5%), showing better earnings retention.
+- Key Risks: Rising total expenses (↑7.2%) and negative account receivable (-$57M) suggest tighter cash flow management is needed.
+Action: Focus on cost control (especially Tesla), leverage Google’s growth, and optimize receivables.
+
+# Loan Performance Report
+<img width="1423" height="792" alt="Screenshot 2025-08-02 224537" src="https://github.com/user-attachments/assets/822aad5a-457d-46ce-845c-4fde6c5e3ac2" />
+
+This report analyzes a $5.13B loan portfolio, with $2.22B outstanding and 10K active loans. Key insights:
+- Risk Exposure: 1,478 delinquent loans (14% of active loans) and 744 defaults require monitoring.
+- Channel Performance: Mobile (ATM/WBC) disbursed $1.2B, but also had higher delinquencies. USSD/API channels showed lower risk.
+- Customer Segments: Retail dominated (46% of loans), but delinquency rates were high (9.15%). Corporate/VIP loans were smaller but more stable.
+- Sector Focus: General sector (56%) and commerce (14%) drove most loans, while oil/gas and real estate were smaller.
+Action: Tighten retail underwriting, optimize mobile channel risk, and diversify sector exposure.
+
+<img width="1415" height="782" alt="Screenshot 2025-08-02 224824" src="https://github.com/user-attachments/assets/7c502d5c-71d2-4411-b09c-0b932a4cf29f" />
+
+# Bank Transaction Report Summary
+
+<img width="1418" height="797" alt="Screenshot 2025-08-02 225106" src="https://github.com/user-attachments/assets/2f16046b-bc8e-45e6-a894-382416869cfd" />
+
+This report analyzes 15K transactions totaling $6.96M, with a 91.9% success rate. Key highlights:
+- Net Flow: Positive $995K (credits: $2.2M, debits: $1.2M).
+- Recent Activity: $75.27M processed in the last 7 days (21 transactions).
+- Customer Segments: Retail dominated ($547K), while Corporate and VIP showed lower volumes.
+- Channels: Mobile/ATM led in volume, but USSD/API had higher reliability.
+- Risks: 3.3% failure rate and pending/reverted transactions need review.
+- Currency Mix: NGN (local) and USD were primary, with CAD/GBP minor.
+Action: Optimize mobile channel reliability, monitor failed transactions, and focus on retail/corporate growth.
+
+<img width="1427" height="783" alt="Screenshot 2025-08-02 225405" src="https://github.com/user-attachments/assets/1f60bd4f-badc-4274-be5d-3fc3a7f2e9d3" />
+
+This report provides a detailed analysis of 28K transactions, with $6.96M YTD volume (down 55% MoM). Key insights:
+- Performance: Average transaction size is $232, with largest credit/debit at $5.03K/$2.11K.
+- Risks: 502 high-risk transactions detected (4.89% anomaly rate), alongside 914 failed and 888 reversed transactions needing review.
+- Customer Activity: Retail dominates transactions (e.g., Bruce Gutierrez, Charles Thompson), while corporate/business segments show lower volumes.
+- Data Gaps: Missing balance data for some entries (e.g., Josu Sullivan) requires validation.
+Action: Investigate MoM decline, address high-risk/failed transactions, and verify incomplete records. (Note: Anomaly detection and channel-specific analysis would enhance insights.)
